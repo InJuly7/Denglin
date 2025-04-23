@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",  
+    "configurations": [  
+        {
+            "name": "Debug Yolov5s",  // 这个配置的名称，会显示在 VSCode 的调试下拉菜单中
+            
+            "type": "cppdbg",  // 指定调试器类型，cppdbg 是 C/C++ 调试扩展
+            
+            "request": "launch",  // 调试请求类型：launch 表示启动程序，attach 表示附加到已运行的程序
+            
+            "program": "${workspaceFolder}/build/test",  // 要调试的可执行文件路径
+                                                                   // ${workspaceFolder} 是 VSCode 变量，指向项目根目录
+            
+            "args": [],  // 传递给程序的命令行参数，目前为空数组
+            
+            "stopAtEntry": false,  // 是否在程序入口点（main函数）处自动停止，设为 true 会在启动时立即中断
+            
+            "cwd": "${workspaceFolder}",  // 设置程序的工作目录为项目根目录
+            
+            "environment": [],  // 程序运行时的环境变量，目前为空
+            
+            "externalConsole": false,  // 是否在外部控制台中运行程序，false 表示使用 VSCode 的集成终端
+            
+            "MIMode": "gdb",  // 使用的调试器后端，GDB 是 Linux 系统标准的调试器
+            
+            "setupCommands": [  // 调试器启动时执行的 GDB/LLDB 命令
+                {
+                    "description": "Enable pretty-printing for gdb",  // 启用 GDB 的美化打印功能
+                    "text": "-enable-pretty-printing",                // 实际的 GDB 命令
+                    "ignoreFailures": true                            // 如果命令失败，继续执行不中断
+                },
+                {
+                    "description": "Set disassembly flavor to Intel",  // 设置反汇编语法为 Intel 格式
+                    "text": "-gdb-set disassembly-flavor intel",       // 实际的 GDB 命令
+                    "ignoreFailures": true                             // 如果命令失败，继续执行不中断
+                }
+            ],
+            
+            "preLaunchTask": "",  // 调试前要执行的任务，例如编译。目前为空，表示不需要预先执行任务
+            
+            "miDebuggerPath": "/usr/bin/gdb"  // GDB 调试器的完整路径
+        }
+    ]
+}
