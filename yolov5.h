@@ -26,6 +26,11 @@ class YOLOV5 {
     protected:
         
         utils::InitParameter m_param;
+
+        const float3 paddingValue = make_float3(114.0f, 114.0f, 114.0f);
+        const float3 alpha = make_float3(1.0 / 255.0f, 1.0 / 255.0f, 1.0 / 255.0f);
+        const float3 beta = make_float3(0.0f, 0.0f, 0.0f);
+        
         dl::nne::Dims m_output_dims;   
         int m_output_area;
         int m_box_tensor;
@@ -47,6 +52,8 @@ class YOLOV5 {
         int m_output_objects_width;     
         int* m_output_idx_device;      
         float* m_output_conf_device;
+
+        
         
 };
 

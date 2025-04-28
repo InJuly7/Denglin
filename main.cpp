@@ -90,7 +90,7 @@ int main(int argc ,char *argv[]) {
     std::string model_path = "/home/firefly/Tingshuo/yolov5s/yolov5s_7sim.quantized.rlym";
     std::string engine_path = "/home/firefly/Tingshuo/yolov5s/yolov5s_7sim.quantized.slz";
     std::string video_path = "/home/firefly/Tingshuo/yolov5s/vedio.mp4";
-    std::string image_path = "/home/firefly/Tingshuo/yolov5s/640640.jpg";
+    std::string image_path = "/home/firefly/Tingshuo/yolov5s/people.jpg";
     int camera_id = 0;
     utils::InputStream source;
     source = utils::InputStream::VIDEO;
@@ -164,7 +164,7 @@ int main(int argc ,char *argv[]) {
     }
     // ./test --batch_size=1 --img=/home/firefly/Tingshuo/yolov5s/people.jpg --savePath=../
 	// ./test --batch_size=2  --video=/home/firefly/Tingshuo/yolov5s/vedio.mp4  --show
-	int delay_time = 1;
+	int delay_time = 5;
     cv::VideoCapture capture;
 	if (!setInputStream(source, image_path, video_path, camera_id, capture, delay_time, param)) {
 		std::cout << "read the input data errors!" << std::endl;
