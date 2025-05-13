@@ -13,12 +13,12 @@ set(CMAKE_CXX_COMPILER "/dl/sdk/bin/dlcc")
 
 message(STATUS CMAKE_CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR})
 file(GLOB CPPS 
-  ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/../utils/*.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/../utils/*.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/yolov5.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/kernel_function.cc
+  ${CMAKE_CURRENT_SOURCE_DIR}/../utils/utils.cpp
 )
 message(STATUS CPPS = ${CPPS})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # 添加头文件目录
 # include_directories(${DLTOOLS_DIR}/include/dlcuda)
@@ -49,5 +49,5 @@ link_directories(${SDK_DIR}/lib ${CMAKE_BINARY_DIR})
 link_directories(${DLTOOLS_DIR}/lib ${CMAKE_BINARY_DIR})
 
 add_executable(test ${CPPS})
-target_compile_options(test PRIVATE -x cuda --cuda-gpu-arch=dlgpuc64 -I${SDK_DIR}/include -I${CMAKE_SOURCE_DIR} ${CXX_FLAGS})
+target_compile_options(test PRIVATE -x cuda --cuda-gpu-arch=dlgpuc64 ${CXX_FLAGS})
 target_link_libraries(test PRIVATE curt dlnne ${OpenCV_LIBS})
