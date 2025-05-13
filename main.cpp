@@ -85,7 +85,7 @@ int main(int argc ,char *argv[]) {
 
     std::string model_path = "/home/firefly/Tingshuo/yolov5s/yolov5s_7sim.rlym";
     std::string engine_path = "/home/firefly/Tingshuo/yolov5s/yolov5s_7sim.slz";
-    std::string video_path = "/home/firefly/Tingshuo/yolov5s/vedio.mp4";
+    std::string video_path = "/home/firefly/Tingshuo/vedio.mp4";
     std::string image_path = "/home/firefly/Tingshuo/yolov5s/640640.jpg";
     int camera_id = 0;
     utils::InputStream source;
