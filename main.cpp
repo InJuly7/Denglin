@@ -9,14 +9,10 @@
 #include <cuda.h>
 #include <dlnne/dlnne.h>
 
-
-#include "../utils/common_include.h"
-#include "../utils/utils.h"
-#include "../utils/kernel_function.h"
+#include "./utils/common_include.h"
+#include "./utils/utils.h"
+#include "./utils/kernel_function.h"
 #include "yolov5.h"
-
-
-
 
 void setParameters(utils::InitParameter& initParameters)
 {

@@ -1,5 +1,5 @@
-#include"../utils/kernel_function.h"
-#include<math.h>
+#include "kernel_function.h"
+#include <math.h>
 
 
 void cuda_check(cudaError_t state, std::string file, int line)

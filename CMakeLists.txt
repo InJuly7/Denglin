@@ -15,8 +15,8 @@ message(STATUS CMAKE_CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR})
 file(GLOB CPPS 
   ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/yolov5.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/kernel_function.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/../utils/utils.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/utils/kernel_function.cc
+  ${CMAKE_CURRENT_SOURCE_DIR}/utils/utils.cpp
 )
 message(STATUS CPPS = ${CPPS})
 

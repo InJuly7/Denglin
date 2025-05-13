@@ -1,6 +1,6 @@
 #pragma once
-#include"../utils/common_include.h"
-#include"../utils/utils.h"
+#include "common_include.h"
+#include "utils.h"
 
 #define CHECK(x)  cuda_check(x, __FILE__, __LINE__)
 #define BLOCK_SIZE 256
