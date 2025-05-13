@@ -1,7 +1,7 @@
 #pragma once
-#include"../utils/common_include.h"
-#include"../utils/utils.h"
-#include"../utils/kernel_function.h"
+#include "utils/common_include.h"
+#include "utils/utils.h"
+#include "utils/kernel_function.h"
 
 class YOLOV5 {
     public:

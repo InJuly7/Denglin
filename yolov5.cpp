@@ -151,21 +151,6 @@ void YOLOV5::preprocess()
 {
     cudaWarpAffine(m_input_src_device, m_param.src_w, m_param.src_h, m_input_hwc_device, m_param.dst_w,  m_param.dst_h, m_dst2src, 
                     paddingValue, alpha, beta);
-    // utils::DumpGPUMemoryToFile(m_input_hwc_device, 3 * m_param.dst_h * m_param.dst_w * sizeof(float), "input_hwc_device.bin");
-
-    // resizeDevice(m_input_src_device, m_param.src_w, m_param.src_h, m_input_resize_device, m_param.dst_w, m_param.dst_h, 114, m_dst2src);
-    // utils::DumpGPUMemoryToFile(m_input_resize_device, 3 * m_param.dst_h * m_param.dst_w * sizeof(float), "input_resize_device.bin");
-
-    // bgr2rgbDevice(m_input_resize_device, m_param.dst_w, m_param.dst_h, m_input_rgb_device, m_param.dst_w, m_param.dst_h);
-    // utils::DumpGPUMemoryToFile(m_input_rgb_device, 3 * m_param.dst_h * m_param.dst_w * sizeof(float), "input_rgb_device.bin");     
-
-
-    // normDevice(m_input_rgb_device, m_param.dst_w, m_param.dst_h, m_input_norm_device, m_param.dst_w, m_param.dst_h, m_param);
-    // utils::DumpGPUMemoryToFile(m_input_norm_device, 3 * m_param.dst_h * m_param.dst_w * sizeof(float), "input_norm_device.bin");
-
-    
-    // hwc2chwDevice(m_input_norm_device, m_param.dst_w, m_param.dst_h, m_input_hwc_device, m_param.dst_w, m_param.dst_h);
-    // utils::DumpGPUMemoryToFile(m_input_hwc_device, 3 * m_param.dst_h * m_param.dst_w * sizeof(float), "input_hwc_device.bin");
 }
 
 bool YOLOV5::infer()

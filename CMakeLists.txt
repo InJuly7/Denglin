@@ -13,9 +13,10 @@ set(CMAKE_CXX_COMPILER "/dl/sdk/bin/dlcc")
 
 message(STATUS CMAKE_CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR})
 file(GLOB CPPS 
-  ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/../utils/*.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/../utils/*.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/yolov5.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/utils/kernel_function.cc
+  ${CMAKE_CURRENT_SOURCE_DIR}/utils/utils.cpp
 )
 message(STATUS CPPS = ${CPPS})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})

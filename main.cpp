@@ -10,9 +10,9 @@
 #include <dlnne/dlnne.h>
 
 
-#include "../utils/common_include.h"
-#include "../utils/utils.h"
-#include "../utils/kernel_function.h"
+#include "utils/common_include.h"
+#include "utils/utils.h"
+#include "utils/kernel_function.h"
 #include "yolov5.h"
 
 
@@ -164,7 +164,7 @@ int main(int argc ,char *argv[]) {
     }
     // ./test --batch_size=1 --img=/home/firefly/Tingshuo/yolov5s/people.jpg --savePath=../
 	// ./test --batch_size=2  --video=/home/firefly/Tingshuo/yolov5s/vedio.mp4  --show
-	int delay_time = 5;
+	int delay_time = 1;
     cv::VideoCapture capture;
 	if (!setInputStream(source, image_path, video_path, camera_id, capture, delay_time, param)) {
 		std::cout << "read the input data errors!" << std::endl;
