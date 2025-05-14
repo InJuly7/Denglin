@@ -1,0 +1,3 @@
+/home/firefly/Tingshuo/yolov8/build/CMakeFiles/test.dir
+/home/firefly/Tingshuo/yolov8/build/CMakeFiles/edit_cache.dir
+/home/firefly/Tingshuo/yolov8/build/CMakeFiles/rebuild_cache.dir
