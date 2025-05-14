@@ -1,0 +1,10 @@
+(python) firefly@firefly:~/Tingshuo/SeAFusion$ python -m dl verify --reference-target llvm --tol 1e-3 ./seafusion..lym 
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmpilq9ezap.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'vis': (1, 3, 480, 640), 'ir': (1, 1, 480, 640)}, outputs_name=['output_1']
+
+build_engine 13787 ms
+Compiling 20.772510051727295(s)
+Compiling 15.023663759231567(s)

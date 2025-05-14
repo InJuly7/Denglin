@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "test_debug",
+            "type": "shell",
+            "command": "source /dl/python/bin/activate && source /dl/sdk/env.sh &&  cd build && make"
+        },
+       
+    ]
+}

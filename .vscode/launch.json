@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "program-debug",
+            "type": "cppdbg",
+            "request": "launch",
+            //待调试的程序
+            "program": "${workspaceFolder}/build/test",
+            "args": [],
+            "stopAtEntry": false,
+            //工作目录，用于寻找文件及图片等
+            "cwd": "${workspaceFolder}",
+            "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /usr/bin/gdb -q --interpreter=mi",
+            "environment": [
+                {"name": "workdir", "value": "workspace"}
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            //每次进行调试前先进行编译操作：
+            "preLaunchTask": "test_debug"
+        }
+    ]
+}
