@@ -1,0 +1,517 @@
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./yolov8s.onnx 
+[13:15:43] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+[13:15:43] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+Optimizing 6.302987337112427(s)
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmp1858vdj3.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'images': (1, 3, 640, 640)}, outputs_name=['out_0']
+
+build_engine 105922 ms
+Compiling 135.5003628730774(s)
+Traceback (most recent call last):
+  File "/dl/python/python/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/dl/python/python/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/dl/sdk/python/tvm/dl/python/dl/__main__.py", line 7, in <module>
+    main()
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 72, in main
+    sys.exit(_main(sys.argv[1:]))
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 68, in _main
+    return args.func(args)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 630, in drive_verify
+    model, args.target, shape_dict=args.input_shapes, input_dict=input_dict, tol=args.tol
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 240, in run_onnx_model
+    _check_relay_with_reference(relay_out, ref, tol)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 128, in _check_relay_with_reference
+    np.testing.assert_allclose(o, r, rtol=tol, atol=tol)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 1528, in assert_allclose
+    verbose=verbose, header=header, equal_nan=equal_nan)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0.001, atol=0.001
+
+Mismatched elements: 32632 / 705600 (4.62%)
+Max absolute difference: 53411.41
+Max relative difference: 1674.8064
+ x: array([[[ 8.197042e+00,  1.587866e+01,  2.515464e+01, ...,
+          4.272084e+02, -3.961892e+02, -1.543394e+02],
+        [ 9.027269e+00,  6.657772e+00,  4.643952e+00, ...,...
+ y: array([[[8.197029e+00, 1.204127e+01, 2.034140e+01, ..., 5.273375e+02,
+         5.437031e+02, 5.458160e+02],
+        [9.027249e+00, 7.893697e+00, 9.154634e+00, ..., 6.136943e+02,...
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./yolov8s.rlym
+[13:41:32] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+[13:41:32] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+Optimizing 6.174748420715332(s)
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmpzvb8v4ix.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'images': (1, 3, 640, 640)}, outputs_name=['output0']
+
+build_engine 103831 ms
+Compiling 134.7707486152649(s)
+Compiling 54.67397904396057(s)
+Traceback (most recent call last):
+  File "/dl/python/python/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/dl/python/python/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/dl/sdk/python/tvm/dl/python/dl/__main__.py", line 7, in <module>
+    main()
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 72, in main
+    sys.exit(_main(sys.argv[1:]))
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 68, in _main
+    return args.func(args)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 637, in drive_verify
+    run_rlym_model(model, args.target, args.output_names, args.reference_target)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 598, in run_rlym_model
+    _check_relay_with_reference(out, ref_out)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 128, in _check_relay_with_reference
+    np.testing.assert_allclose(o, r, rtol=tol, atol=tol)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 1528, in assert_allclose
+    verbose=verbose, header=header, equal_nan=equal_nan)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0.01, atol=0.01
+
+Mismatched elements: 25869 / 705600 (3.67%)
+Max absolute difference: 123170.42
+Max relative difference: 3793.8774
+ x: array([[[ 6.731776e+00,  1.894999e+01,  3.174491e+01, ...,
+         -2.669595e+02,  2.501893e+03,  9.621226e+02],
+        [ 8.498171e+00,  1.052787e+01,  8.745674e+00, ...,...
+ y: array([[[6.731777e+00, 8.428507e+00, 1.690407e+01, ..., 4.952997e+02,
+         5.108317e+02, 5.242607e+02],
+        [8.498196e+00, 1.105304e+01, 1.574480e+01, ..., 6.161520e+02,...
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./yolov8m.onnx 
+[13:48:23] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+[13:48:23] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+Optimizing 7.706520318984985(s)
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmpi90n5v7x.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'images': (1, 3, 640, 640)}, outputs_name=['out_0']
+
+build_engine 141012 ms
+Compiling 192.07558369636536(s)
+Traceback (most recent call last):
+  File "/dl/python/python/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/dl/python/python/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/dl/sdk/python/tvm/dl/python/dl/__main__.py", line 7, in <module>
+    main()
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 72, in main
+    sys.exit(_main(sys.argv[1:]))
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 68, in _main
+    return args.func(args)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 630, in drive_verify
+    model, args.target, shape_dict=args.input_shapes, input_dict=input_dict, tol=args.tol
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 240, in run_onnx_model
+    _check_relay_with_reference(relay_out, ref, tol)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 128, in _check_relay_with_reference
+    np.testing.assert_allclose(o, r, rtol=tol, atol=tol)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 1528, in assert_allclose
+    verbose=verbose, header=header, equal_nan=equal_nan)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0.001, atol=0.001
+
+Mismatched elements: 32617 / 705600 (4.62%)
+Max absolute difference: 41596.54
+Max relative difference: 1382.2179
+ x: array([[[ 5.983683e+00,  1.434870e+01,  2.253180e+01, ...,
+          4.623838e+02,  1.296639e+03,  9.665083e+02],
+        [ 5.993086e+00,  9.323376e+00,  1.345200e+01, ...,...
+ y: array([[[5.983675e+00, 1.045072e+01, 1.428482e+01, ..., 5.390892e+02,
+         5.806841e+02, 5.922427e+02],
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./yolov8m-seg.onnx
+[13:52:22] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+[13:52:22] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+[13:52:22] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: nn.conv2d_transpose
+Optimizing 9.156065702438354(s)
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmp4b0yfwha.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'images': (1, 3, 640, 640)}, outputs_name=['out_0', 'out_1']
+
+build_engine 165263 ms
+Compiling 223.0364706516266(s)
+Traceback (most recent call last):
+  File "/dl/python/python/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/dl/python/python/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/dl/sdk/python/tvm/dl/python/dl/__main__.py", line 7, in <module>
+    main()
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 72, in main
+    sys.exit(_main(sys.argv[1:]))
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 68, in _main
+    return args.func(args)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 630, in drive_verify
+    model, args.target, shape_dict=args.input_shapes, input_dict=input_dict, tol=args.tol
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 240, in run_onnx_model
+    _check_relay_with_reference(relay_out, ref, tol)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 128, in _check_relay_with_reference
+    np.testing.assert_allclose(o, r, rtol=tol, atol=tol)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 1528, in assert_allclose
+    verbose=verbose, header=header, equal_nan=equal_nan)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0.001, atol=0.001
+
+Mismatched elements: 32800 / 974400 (3.37%)
+Max absolute difference: 118985.57
+Max relative difference: 2720.8774
+ x: array([[[ 8.590015e+00,  1.189349e+01,  1.958861e+01, ...,
+          6.965957e+02,  1.001105e+03, -2.311367e+02],
+        [ 4.050963e+00,  3.078812e+00,  1.073447e+01, ...,...
+ y: array([[[ 8.590001e+00,  1.600139e+01,  1.695980e+01, ...,
+          5.501610e+02,  5.808346e+02,  6.175214e+02],
+        [ 4.050968e+00,  3.863770e+00,  3.588605e+00, ...,...
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./yolov11m.onnx 
+Importing 5.531283855438232(s)
+[13:56:55] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+[13:56:55] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+Optimizing 13.435549259185791(s)
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmpftv9w0zj.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'images': (1, 3, 480, 640)}, outputs_name=['out_0']
+
+build_engine 217100 ms
+Compiling 278.2049894332886(s)
+Traceback (most recent call last):
+  File "/dl/python/python/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/dl/python/python/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/dl/sdk/python/tvm/dl/python/dl/__main__.py", line 7, in <module>
+    main()
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 72, in main
+    sys.exit(_main(sys.argv[1:]))
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 68, in _main
+    return args.func(args)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 630, in drive_verify
+    model, args.target, shape_dict=args.input_shapes, input_dict=input_dict, tol=args.tol
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 240, in run_onnx_model
+    _check_relay_with_reference(relay_out, ref, tol)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 128, in _check_relay_with_reference
+    np.testing.assert_allclose(o, r, rtol=tol, atol=tol)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 1528, in assert_allclose
+    verbose=verbose, header=header, equal_nan=equal_nan)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0.001, atol=0.001
+
+Mismatched elements: 25035 / 529200 (4.73%)
+Max absolute difference: 59694.83
+Max relative difference: 1168.134
+ x: array([[[ 3.672351e+00,  1.497225e+01,  2.155085e+01, ...,
+          2.182894e+02,  1.177446e+03,  5.512296e+02],
+        [ 4.245549e+00,  6.824715e+00,  5.820214e+00, ...,...
+ y: array([[[4.208838e+00, 1.346695e+01, 2.035994e+01, ..., 5.331890e+02,
+         5.580405e+02, 5.867870e+02],
+        [3.718496e+00, 4.824328e+00, 4.614699e+00, ..., 4.543987e+02,...
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ../yolov5s/yolov5s_7sim.onnx 
+[14:03:09] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+[14:03:09] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+Optimizing 5.928792953491211(s)
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmpcqzvmhd5.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'images': (1, 3, 640, 640)}, outputs_name=['out_0']
+
+build_engine 101980 ms
+Compiling 128.66535425186157(s)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ../SeAFusion/seafusion.onnx 
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmp7rliis0r.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'vis': (1, 3, 480, 640), 'ir': (1, 1, 480, 640)}, outputs_name=['out_0']
+
+build_engine 14512 ms
+Compiling 21.69811463356018(s)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./modified_yolov8s_slim.onnx 
+[14:40:59] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+[14:40:59] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+Optimizing 6.125720739364624(s)
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmpdmmjlpek.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'images': (1, 3, 640, 640)}, outputs_name=['out_0']
+
+ build_engine 93019 ms
+Compiling 121.65346479415894(s)
+(python) firefly@firefly:~/Tingshuo/yolov8$  
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./modified_yolov8s_slim_bug.onnx 
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmp8o01pb66.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'input_1': (1, 64, 8400)}, outputs_name=['out_0']
+
+build_engine 11240 ms
+Compiling 14.790112257003784(s)
+Traceback (most recent call last):
+  File "/dl/python/python/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/dl/python/python/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/dl/sdk/python/tvm/dl/python/dl/__main__.py", line 7, in <module>
+    main()
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 72, in main
+    sys.exit(_main(sys.argv[1:]))
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 68, in _main
+    return args.func(args)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 630, in drive_verify
+    model, args.target, shape_dict=args.input_shapes, input_dict=input_dict, tol=args.tol
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 240, in run_onnx_model
+    _check_relay_with_reference(relay_out, ref, tol)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 128, in _check_relay_with_reference
+    np.testing.assert_allclose(o, r, rtol=tol, atol=tol)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 1528, in assert_allclose
+    verbose=verbose, header=header, equal_nan=equal_nan)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0.001, atol=0.001
+
+Mismatched elements: 33174 / 33600 (98.7%)
+Max absolute difference: 53551.367
+Max relative difference: 2760.044
+ x: array([[[ 5.014759e+00,  1.998611e+00,  3.650748e+01, ...,
+          1.103139e+03,  2.930393e+02, -2.053464e+02],
+        [ 4.740223e+00, -2.499805e+00, -1.004196e+01, ...,...
+ y: array([[[  5.014759,  13.350746,  25.81343 , ..., 554.3916  ,
+         549.4682  , 626.5971  ],
+        [  4.740223,  16.587053,  20.507479, ..., 656.7378  ,...
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./soffmax_4D.onnx 
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmp34d0h2nj.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'input_2': (1, 8400, 4, 16)}, outputs_name=['out_0']
+
+build_engine 6100 ms
+Compiling 8.934053897857666(s)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./branch2_yolov8s_slim.onnx 
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmpw2dqeboe.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'input_1': (1, 64, 8400)}, outputs_name=['out_0']
+
+build_engine 5419 ms
+Compiling 8.546693801879883(s)
+Traceback (most recent call last):
+  File "/dl/python/python/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/dl/python/python/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/dl/sdk/python/tvm/dl/python/dl/__main__.py", line 7, in <module>
+    main()
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 72, in main
+    sys.exit(_main(sys.argv[1:]))
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 68, in _main
+    return args.func(args)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 630, in drive_verify
+    model, args.target, shape_dict=args.input_shapes, input_dict=input_dict, tol=args.tol
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 240, in run_onnx_model
+    _check_relay_with_reference(relay_out, ref, tol)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 128, in _check_relay_with_reference
+    np.testing.assert_allclose(o, r, rtol=tol, atol=tol)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 1528, in assert_allclose
+    verbose=verbose, header=header, equal_nan=equal_nan)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0.001, atol=0.001
+
+Mismatched elements: 33490 / 33600 (99.7%)
+Max absolute difference: 493.74277
+Max relative difference: 99.7498
+ x: array([[[[  7.835256,   8.983482,   7.64042 , ..., 321.75302 ,
+          300.1617  , 350.64673 ],
+         [  8.392436,   8.287433,   7.215898, ..., 387.36655 ,...
+ y: array([[[[ 7.835257,  7.09073 ,  6.285967, ..., 10.079118,  4.82232 ,
+           5.498165],
+         [ 8.392436,  5.334286,  7.640419, ...,  6.501144,  7.341813,...
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./branch2_down_v8s_slm.onnx
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmptt_a2me9.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'input_2': (1, 8400, 4, 16)}, outputs_name=['out_0']
+
+build_engine 73 ms
+(python) firefly@firefly:~/Tingshuo/yolov8$ python -m dl verify --reference-target llvm --tol 1e-3 ./branch2_top_v8s_slim.onnx 
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmp5brjv89q.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'input_1': (1, 64, 8400)}, outputs_name=['out_0']
+
+build_engine 5471 ms
+Compiling 8.431163549423218(s)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/DlDeepTookit/c++$ python -m dl verify --reference-target llvm --tol 1e-3 /home/firefly/Tingshuo/yolov8/graphModified_yolov8s_slim.onnx 
+[06:59:39] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+[06:59:39] ../ai_software/compiler/tvm/src/relay/transforms/convert_layout.cc:115: Warning: Desired layout(s) not specified for op: image.resize2d
+Optimizing 5.9149415493011475(s)
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmpnc2yda91.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'images': (1, 3, 640, 640)}, outputs_name=['out_0']
+
+build_engine 105515 ms
+Compiling 136.07824110984802(s)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+(python) firefly@firefly:~/Tingshuo/DlDeepTookit/c++$ python -m dl verify --reference-target llvm --tol 1e-3 /home/firefly/Tingshuo/yolov8/S_T.onnx 
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+[load_model] file_name=/tmp/tmprs3fh1v0.rlym, shape_dict={}, outputs_name=[]
+
+load dlnne_plugin.so && libdlnne_tvm_plugin.so success
+shape_dict={'input_1': (1, 8400, 4, 16)}, outputs_name=['out_0']
+
+build_engine 5900 ms
+Compiling 8.674071073532104(s)
+Traceback (most recent call last):
+  File "/dl/python/python/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/dl/python/python/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/dl/sdk/python/tvm/dl/python/dl/__main__.py", line 7, in <module>
+    main()
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 72, in main
+    sys.exit(_main(sys.argv[1:]))
+  File "/dl/sdk/python/tvm/dl/python/dl/main.py", line 68, in _main
+    return args.func(args)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 630, in drive_verify
+    model, args.target, shape_dict=args.input_shapes, input_dict=input_dict, tol=args.tol
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 240, in run_onnx_model
+    _check_relay_with_reference(relay_out, ref, tol)
+  File "/dl/sdk/python/tvm/dl/python/dl/driver/run.py", line 128, in _check_relay_with_reference
+    np.testing.assert_allclose(o, r, rtol=tol, atol=tol)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 1528, in assert_allclose
+    verbose=verbose, header=header, equal_nan=equal_nan)
+  File "/dl/python/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0.001, atol=0.001
+
+Mismatched elements: 526768 / 537600 (98%)
+Max absolute difference: 10.457362
+Max relative difference: 2385.389
+ x: array([[[[1.161745e-02, 6.549986e-02, 3.494120e-02, ..., 1.523232e+00,
+          5.064490e+00, 2.192436e-01],
+         [3.660981e-02, 2.772941e-02, 1.656814e-02, ..., 1.624787e+00,...
+ y: array([[[[0.011617, 0.016472, 0.026933, ..., 0.094858, 0.029725,
+          0.034093],
+         [0.03661 , 0.113173, 0.034941, ..., 0.111071, 0.046648,...
+

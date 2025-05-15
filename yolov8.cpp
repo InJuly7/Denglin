@@ -149,7 +149,7 @@ bool YOLOV8::infer()
 {
     float* bindings[] = {m_input_dst_device, m_output_src_device};
     bool context = m_context->Execute(1, (void**)bindings);
-    utils::DumpGPUMemoryToFile(m_output_src_device, m_output_area * sizeof(float), "inference_output.bin");
+    // utils::DumpGPUMemoryToFile(m_output_src_device, m_output_area * sizeof(float), "inference_output.bin");
     return context;
 }
 
@@ -193,12 +193,6 @@ void YOLOV8::postprocess()
         
         if(current_boxes < m_param.topK)
             m_detections[current_boxes++] = utils::Box(x_lt, y_lt, x_rb, y_rb, max_score, label);
-        
-        for(int i = 0; i < 4; i++) {
-            std::cout << box_tensor[i] << " ";
-        }
-        std::cout << label << std::endl;
-    
     }
     if(m_param.is_debug) 
             std::cout << "Detections Box Num: " << current_boxes << std::endl;

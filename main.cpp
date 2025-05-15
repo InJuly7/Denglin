@@ -82,14 +82,14 @@ int main(int argc ,char *argv[]) {
     utils::InitParameter param;
     setParameters(param);
 
-    std::string model_path = "/home/firefly/Tingshuo/yolov8/yolov8s.rlym";
-    std::string engine_path = "/home/firefly/Tingshuo/yolov8/yolov8s.slz";
+    std::string model_path = "/home/firefly/Tingshuo/yolov8/graphModified_yolov8s_slim.rlym";
+    std::string engine_path = "/home/firefly/Tingshuo/yolov8/graphModified_yolov8s_slim.slz";
     std::string video_path = "/home/firefly/Tingshuo/vedio.mp4";
     std::string image_path = "/home/firefly/Tingshuo/yolov8/640640.jpg";
     int camera_id = 0;
     utils::InputStream source;
-    // source = utils::InputStream::VIDEO;
-    source = utils::InputStream::IMAGE;
+    source = utils::InputStream::VIDEO;
+    // source = utils::InputStream::IMAGE;
     int size = 640;
 	int batch_size = 1;
 	bool is_show = true;
