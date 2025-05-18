@@ -27,8 +27,8 @@ void setParameters(utils::InitParameter& initParameters)
 	initParameters.dst_w  = 640;
 
 	initParameters.input_output_names = { "images",  "output0" };
-	initParameters.conf_thresh = 0.25f;
-	initParameters.iou_thresh = 0.45f;
+	initParameters.conf_thresh = 0.15f;
+	initParameters.iou_thresh = 0.35f;
 	initParameters.save_path = "";
 	initParameters.topK = 300;
 }
@@ -82,8 +82,8 @@ int main(int argc ,char *argv[]) {
     utils::InitParameter param;
     setParameters(param);
 
-    std::string model_path = "/home/firefly/Tingshuo/yolov8/graphModified_yolov8s_slim.rlym";
-    std::string engine_path = "/home/firefly/Tingshuo/yolov8/graphModified_yolov8s_slim.slz";
+    std::string model_path = "/home/firefly/Tingshuo/yolov8/yolov8s_transpose.quantized.rlym";
+    std::string engine_path = "/home/firefly/Tingshuo/yolov8/yolov8s_transpose.quantized.slz";
     std::string video_path = "/home/firefly/Tingshuo/vedio.mp4";
     std::string image_path = "/home/firefly/Tingshuo/yolov8/640640.jpg";
     int camera_id = 0;

@@ -193,6 +193,7 @@ void YOLOV8::postprocess()
         
         if(current_boxes < m_param.topK)
             m_detections[current_boxes++] = utils::Box(x_lt, y_lt, x_rb, y_rb, max_score, label);
+        else break;
     }
     if(m_param.is_debug) 
             std::cout << "Detections Box Num: " << current_boxes << std::endl;
